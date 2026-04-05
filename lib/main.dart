@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:union_app/ui/views/main_ui.dart';
+import 'package:union_app/utils/log.dart';
 
 void main() {
+  Log.writeLine("Starting...");
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
@@ -31,7 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const MainUI()
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: const MainUI(),
+      ),
     );
   }
 }
